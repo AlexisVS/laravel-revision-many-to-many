@@ -3,18 +3,18 @@
 namespace Database\Factories;
 
 use App\Models\Article;
+use App\Models\Article_tag;
 use App\Models\Tag;
-use App\Models\Tag_article;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class Tag_articleFactory extends Factory
+class Article_tagFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Tag_article::class;
+    protected $model = Article_tag::class;
 
     /**
      * Define the model's default state.

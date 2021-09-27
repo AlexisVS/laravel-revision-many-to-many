@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
+use App\Models\Article_tag;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class ArticleTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,23 +41,21 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tag  $tag
+     * @param  \App\Models\Article_tag  $article_tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show(Article_tag $article_tag)
     {
-        $colors = ['gray', 'red', 'green', 'yellow', 'blue', 'purple', 'indigo', 'pink'];
-        $articles = $tag->articles;
-        return view('showTag',compact('articles', 'colors'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tag  $tag
+     * @param  \App\Models\Article_tag  $article_tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(Article_tag $article_tag)
     {
         //
     }
@@ -66,10 +64,10 @@ class TagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tag  $tag
+     * @param  \App\Models\Article_tag  $article_tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, Article_tag $article_tag)
     {
         //
     }
@@ -77,10 +75,10 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tag  $tag
+     * @param  \App\Models\Article_tag  $article_tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Article_tag $article_tag)
     {
         //
     }

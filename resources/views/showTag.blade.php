@@ -1,6 +1,5 @@
 @extends("template.index")
 @section('content')
-
   @foreach ($articles as $article)
     <div class="m-6">
       <div class="max-w-xl m-auto bg-gray-100 rounded-lg shadow-sm ">
@@ -23,7 +22,6 @@
           <div class="flex space-x-2 mb-3 ml-8">
             @foreach ($article->tags as $articleTag)
               <a href="/tag/{{ $articleTag->id }}">
-
                 <span
                   class="text-sm px-2 font-semibold bg-{{ Arr::random($colors) }}-500 text-white rounded-full py-0.5">
                   {{ $articleTag->name }}
@@ -67,19 +65,6 @@
       </div>
     </div>
   @endforeach
-  </div>
-
-  <hr class="my-12 text-white">
-
-  <div class="flex justify-center space-x-5 flex-wrap w-full mb-28">
-    @foreach ($tags as $tag)
-      <a href="/tag/{{ $tag->id }}">
-        <span
-          class="text-3xl px-12 py-4 font-semibold bg-{{ Arr::random($colors) }}-500 hover:bg-{{ Arr::random($colors) }}-300 text-white rounded-full py-0.5">
-          {{ $tag->name }}
-        </span>
-      </a>
-    @endforeach
   </div>
 
 @endsection

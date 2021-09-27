@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\Article_tag;
 use App\Models\Tag;
-use App\Models\Tag_article;
-use Database\Factories\User_tagFactory;
+use Database\Factories\ArticleTagFactory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,18 +23,17 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class
         ]);
 
-        // Tag_article::factory()->hasAttached(
-        //     Article::factory()->count(1)
-        // )
-        //     ->state(function (array $attributes, Article $article) {
-        //         return [
-        //             'tag_id' => Tag::all()->random()->id,
-        //             'article_id' => $article->id,
-        //         ];
-        //     })
-        //     ->count(10)
-        //     ->create();
+        \App\Models\Article_tag::factory()->count(20)->create();
 
-        Tag_article::factory()->count(20)->create();
+        \App\Models\Article_tag::factory()->count(50)
+            ->state(new Sequence(
+                function ($sequence) {
+                    return [
+                        'tag_id' => Tag::all()->random()->id,
+                        'article_id' => Article::all()->random()->id,
+                    ];
+                }
+            ))
+            ->create();
     }
 }

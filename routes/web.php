@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\TagController;
+use App\Models\Article;
+use App\Models\Article_tag;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $articles = Article::all();
+    $tags = Tag::all();
+    $colors = ['gray', 'red', 'green', 'yellow', 'blue', 'purple', 'indigo', 'pink'];
+    // dd($articles[0]->tags->name);
+    return view('welcome', compact('articles', 'tags', 'colors'));
 });
+
+Route::resource('/tag', TagController::class);
