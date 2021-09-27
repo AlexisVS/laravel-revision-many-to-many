@@ -1,0 +1,31 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Article;
+use App\Models\Tag;
+use App\Models\Tag_article;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class Tag_articleFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Tag_article::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'tag_id' => $this->faker->numberBetween(1, Tag::all()->count()),
+            'article_id' => Article::factory()
+        ];
+    }
+}
